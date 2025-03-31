@@ -1,0 +1,34 @@
+name: Deploy to Google Cloud VM
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Decode and Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY_BASE64 }}" | base64 -d > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+
+    - name: Add Google Cloud VM to known hosts
+      run: |
+        ssh-keyscan -H 35.228.39.212 >> ~/.ssh/known_hosts
+        cat ~/.ssh/known_hosts
+
+    - name: Test SSH Connection
+      run: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no jaseppan@35.228.39.212 "echo 'SSH connection successful'"
+
+    - name: Deploy to Google Cloud VM
+      run: |
+        rsync -avz --exclude 'tests' --exclude '.git' ./ jaseppan@35.228.39.212:/home/jaseppan/ols-docker-env/sites/janneseppanen.site/html/wp-content/themes/janneseppanen-theme-2025
+      env:
+        SSH_PRIVATE_KEY_BASE64: ${{ secrets.SSH_PRIVATE_KEY_BASE64 }}
