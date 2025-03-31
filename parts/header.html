@@ -1,23 +1,13 @@
-<!-- wp:group {"layout":{"inherit":true}} -->
-<div class="wp-block-group header-container">
-    <!-- wp:group {"align":"full","layout":{"type":"flex","justifyContent":"space-between"},"style":{"spacing":{"padding":{"top":"30px","bottom":"30px"}}}} -->
-    <div class="wp-block-group alignfull header-content" style="padding-top:30px;padding-bottom:30px">
-    
-        <!-- wp:group {"layout":{"type":"flex"}} -->
-        <div class="wp-block-group">
-            <!-- wp:site-logo {"width":64} /-->
-    
-            <!-- wp:group -->
-            <div class="wp-block-group">
-                <!-- wp:site-tagline /-->
-            </div>
-            <!-- /wp:group -->
-        </div>
-        <!-- /wp:group -->
-    
-        <!-- wp:navigation {"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right","orientation":"horizontal"},"style":{"spacing":{"margin":{"top":"0"}}}} /-->
-    
-    </div>
-    <!-- /wp:group -->
-</div>
+<!-- wp:group {"className":"header-container","layout":{"inherit":true,"type":"constrained"}} -->
+<div class="wp-block-group header-container"><!-- wp:group {"align":"full","className":"header-content","style":{"spacing":{"padding":{"top":"30px","bottom":"30px"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
+<div class="wp-block-group alignfull header-content" style="padding-top:30px;padding-bottom:30px"><!-- wp:group {"layout":{"type":"flex"}} -->
+<div class="wp-block-group"><!-- wp:site-logo {"width":64,"className":"is-style-rounded"} /-->
+
+<!-- wp:group -->
+<div class="wp-block-group"><!-- wp:site-tagline /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:navigation {"overlayMenu":"always","icon":"menu","style":{"spacing":{"margin":{"top":"0"},"blockGap":"var:preset|spacing|30"},"layout":{"selfStretch":"fit","flexSize":null}},"fontSize":"medium","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"center","orientation":"horizontal"}} /--></div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->

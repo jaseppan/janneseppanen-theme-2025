@@ -80,3 +80,39 @@ h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
 .more-link {
 	display: block;
 }
+
+/* Hide the menu by default */
+.wp-block-navigation__responsive-container {
+    display: none;
+}
+
+/* Show the menu when the class is-menu-open is added */
+.wp-block-navigation__responsive-container.is-menu-open {
+    display: flex;
+}
+
+/* Mobile styles for screens 768px and below */
+/* copy of wp default css to a 1000px media query */
+@media (min-width: 760px) {
+    .wp-block-navigation__responsive-container-open:not(.always-shown) {
+        display: none !important;
+    }
+
+    .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+        display: block !important;
+        width: 100%;
+        position: relative;
+        z-index: auto;
+        background-color: inherit;
+    }
+}
+
+/* neutralize the wp default for 600px */
+@media (min-width: 600px) {
+    .wp-block-navigation__responsive-container-open:not(.always-shown) {
+        display: flex;
+    }
+    .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+        display: none;
+    }
+}
