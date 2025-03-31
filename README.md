@@ -35,7 +35,6 @@ Displays the current year with a copyright symbol.
 - **`parts/footer.html`:** Footer template part.
 - **`assets/js/smooth-scroll.js`:** JavaScript for smooth scrolling.
 - **`templates/index.html`:** Main template for the homepage.
-- **`templates/page.html`:** Template for pages without titles.
 
 ## Customization
 
@@ -51,14 +50,6 @@ Displays the current year with a copyright symbol.
 
 ### Smooth Scrolling
 - Smooth scrolling is enabled for anchor links. The script is located in `assets/js/smooth-scroll.js`.
-
-## Custom Templates
-
-### Page No Title
-A custom template for pages without titles.
-
-- **File:** `page-no-title.html`
-- **Usage:** Assign this template to a page in the WordPress editor under **Page Attributes**.
 
 ## Requirements
 
