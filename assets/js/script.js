@@ -1,12 +1,18 @@
-// Smooth scrolling for anchor links
+// Smooth scrolling for anchor links with header height compensation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
+        const header = document.querySelector('.header-container'); // Select the fixed header
+        const headerHeight = header ? header.offsetHeight : 0; // Get the height of the header
+
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const targetPosition = target.getBoundingClientRect().top + window.scrollY; // Get target position relative to the document
+            const offsetPosition = targetPosition - headerHeight; // Adjust for header height
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
             });
         }
     });
