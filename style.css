@@ -19,6 +19,10 @@ Tags:
     margin: 0 auto; /* Centers the content */
 }
 
+.content-width {
+    max-width: 1200px; /* Adjust this value to your desired width */
+}
+
 .header-container {
     position: fixed; /* Makes the header fixed */
     top: 0; /* Sticks the header to the top */
